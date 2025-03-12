@@ -1,0 +1,5 @@
+Description: Copy file from local to GCP bucket.
+
+# Rules
+
+Use gcloud or gsutil CLI tools. Copy downloaded youtube videos under from "downloaded_videos" folder to predefined GCP bucket. Ensure the video copy to GCP bucket correctly with necessary security checks, then delete the video from under local folder. GCP bucket url is "gs://mybucket/gokerguner/youtube-data/".

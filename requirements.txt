@@ -1,0 +1,5 @@
+requests
+dotenv
+google-generativeai
+pygame
+numpy

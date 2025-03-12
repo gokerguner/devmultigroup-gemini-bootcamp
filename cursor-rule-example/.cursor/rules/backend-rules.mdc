@@ -1,0 +1,8 @@
+Description: YouTube video downloader. Each video will be downloaded at the top quality possible.
+
+# Rules
+
+Use yt-dlp library when writing Python code. The downloaded videos will be saved under the “downloaded_videos” folder in Current Directory. Create the folder firstly. Use cookies to download videos. You have to use @example-download.py to use cookies and download videos properly. If downloading videos is blocked by Youtube, making more experimenting and kill the process.
+
+
+

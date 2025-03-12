@@ -1,0 +1,7 @@
+Description: Log formatting rules using logging library.
+
+# Rules
+
+Log format for @engine.py: Video id, download progress status, resolution quality of the downloaded video, and the total size of the video on the screen as log.
+
+Log format for @copy_to_bucket.py: Video id, Source Destination and Target Destination information, information has been successfully made, and whether the file is successfully deleted from the locality should be included.

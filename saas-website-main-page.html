@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudFlow - Modern SaaS Solutions</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3a0ca3;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #4cc9f0;
+      --gray: #6c757d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo span {
+      color: var(--secondary);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--success);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .features {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .product-info {
+      padding: 20px;
+    }
+    
+    .product-info h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    
+    .product-info p {
+      color: var(--gray);
+      margin-bottom: 15px;
+    }
+    
+    .price {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #adb5bd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #adb5bd;
+      font-size: 14px;
+    }
+    
+    .chat-widget {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+    
+    .chat-button {
+      background-color: var(--primary);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .chat-button:hover {
+      transform: scale(1.1);
+    }
+    
+    .chat-popup {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: none;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .chat-popup.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .chat-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .chat-header h3 {
+      font-size: 16px;
+      margin: 0;
+    }
+    
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
+    .chat-body {
+      padding: 20px;
+      height: 300px;
+      overflow-y: auto;
+    }
+    
+    .chat-message {
+      margin-bottom: 15px;
+      display: flex;
+    }
+    
+    .user-message {
+      justify-content: flex-end;
+    }
+    
+    .message-content {
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 80%;
+    }
+    
+    .support-message .message-content {
+      background-color: #f1f3f5;
+    }
+    
+    .user-message .message-content {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .chat-footer {
+      padding: 15px;
+      border-top: 1px solid #f1f3f5;
+      display: flex;
+    }
+    
+    .chat-input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #dee2e6;
+      border-radius: 30px;
+      outline: none;
+    }
+    
+    .send-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+      
+      .nav-links {
+        margin-top: 20px;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .hero h1 {
+        font-size: 36px;
+      }
+      
+      .chat-popup {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">Cloud<span>Flow</span></a>
+        <ul class="nav-links">
+          <li><a href="#">Who are we?</a></li>
+          <li><a href="#">Our Products</a></li>
+          <li><a href="#">Social Media</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Simplify Your Workflow</h1>
+      <p>CloudFlow provides state-of-the-art SaaS solutions to streamline your business processes and boost productivity.</p>
+      <a href="#" class="btn">Get Started Free</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Featured Products</h2>
+        <p>Discover how our cloud-based solutions can transform your business operations</p>
+      </div>
+      
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="/api/placeholder/400/320" alt="CloudFlow Analytics Dashboard" class="product-img">
+          <div class="product-info">
+            <h3>Analytics Suite</h3>
+            <p>Transform your data into actionable insights with our comprehensive analytics platform.</p>
+            <span class="price">From $29/month</span>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <img src="/api/placeholder/400/320" alt="CloudFlow Project Management" class="product-img">
+          <div class="product-info">
+            <h3>Project Hub</h3>
+            <p>Manage your team's tasks, deadlines, and collaboration in one centralized platform.</p>
+            <span class="price">From $39/month</span>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <img src="/api/placeholder/400/320" alt="CloudFlow CRM Software" class="product-img">
+          <div class="product-info">
+            <h3>Customer Connect</h3>
+            <p>Build stronger relationships with your customers through our intuitive CRM solution.</p>
+            <span class="price">From $49/month</span>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>CloudFlow</h3>
+          <p>Providing innovative SaaS solutions since 2018. We help businesses of all sizes optimize their workflows and increase productivity.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li>Email: info@cloudflow.com</li>
+            <li>Phone: +1 (800) 123-4567</li>
+            <li>Address: 123 Tech Plaza, San Francisco, CA 94105</li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i>FB</i></a>
+            <a href="#"><i>TW</i></a>
+            <a href="#"><i>IG</i></a>
+            <a href="#"><i>LI</i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 CloudFlow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-widget">
+    <div class="chat-button" id="chatButton">
+      <i>💬</i>
+    </div>
+    
+    <div class="chat-popup" id="chatPopup">
+      <div class="chat-header">
+        <h3 id="chatStatus">Live Support</h3>
+        <button class="close-chat" id="closeChat">×</button>
+      </div>
+      
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message support-message">
+          <div class="message-content">
+            <p id="initialMessage">Hello! How can we help you today?</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-footer">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+        <button class="send-button" id="sendMessage">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Chat functionality
+      const chatButton = document.getElementById('chatButton');
+      const chatPopup = document.getElementById('chatPopup');
+      const closeChat = document.getElementById('closeChat');
+      const chatBody = document.getElementById('chatBody');
+      const chatInput = document.getElementById('chatInput');
+      const sendMessage = document.getElementById('sendMessage');
+      const chatStatus = document.getElementById('chatStatus');
+      const initialMessage = document.getElementById('initialMessage');
+      
+      // Check if within business hours (9AM to 5PM)
+      const now = new Date();
+      const hours = now.getHours();
+      const isBusinessHours = hours >= 9 && hours < 17;
+      
+      // Update chat status based on business hours
+      if (!isBusinessHours) {
+        chatStatus.textContent = 'Chatbot Support';
+        initialMessage.textContent = 'Our live support team is currently unavailable. I\'m your automated assistant. How can I help you today?';
+      }
+      
+      // Toggle chat popup
+      chatButton.addEventListener('click', function() {
+        chatPopup.classList.toggle('active');
+      });
+      
+      // Close chat popup
+      closeChat.addEventListener('click', function() {
+        chatPopup.classList.remove('active');
+      });
+      
+      // Send message function
+      function sendUserMessage() {
+        const message = chatInput.value.trim();
+        if (message === '') return;
+        
+        // Add user message
+        const userMessageDiv = document.createElement('div');
+        userMessageDiv.className = 'chat-message user-message';
+        userMessageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${message}</p>
+          </div>
+        `;
+        chatBody.appendChild(userMessageDiv);
+        
+        // Clear input
+        chatInput.value = '';
+        
+        // Auto response based on business hours
+        setTimeout(function() {
+          let responseText;
+          if (isBusinessHours) {
+            responseText = 'Thank you for your message. One of our support agents will respond shortly.';
+          } else {
+            responseText = 'Thanks for your message. Our team will get back to you during business hours (9AM-5PM). For urgent matters, please email support@cloudflow.com.';
+          }
+          
+          const supportMessageDiv = document.createElement('div');
+          supportMessageDiv.className = 'chat-message support-message';
+          supportMessageDiv.innerHTML = `
+            <div class="message-content">
+              <p>${responseText}</p>
+            </div>
+          `;
+          chatBody.appendChild(supportMessageDiv);
+          
+          // Scroll to bottom
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, 500);
+        
+        // Scroll to bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+      
+      // Send message on click
+      sendMessage.addEventListener('click', sendUserMessage);
+      
+      // Send message on Enter key
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendUserMessage();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
