@@ -1,6 +1,7 @@
 # devmultigroup-gemini-bootcamp
 
 Youtube Link: https://www.youtube.com/live/jZbjJo8YxQg?si=4uc_gKaeqD3J6img
+
 Sunum Linki: https://speakerdeck.com/gokerguner/fantastic-prompts-and-where-to-find-them
 
 ## Create Virtual environment
